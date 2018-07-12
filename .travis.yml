@@ -1,0 +1,13 @@
+language: go
+go: 1.10.x
+
+install: skip
+
+jobs:
+  include:
+    - stage: test
+      script: echo "this is a test"
+    - # stage name not required, will continue to use `test`
+      script: ./test 2
+    - stage: test
+      script: echo "we deploy here"
