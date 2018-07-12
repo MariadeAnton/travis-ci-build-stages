@@ -8,6 +8,6 @@ jobs:
     - stage: test
       script: echo "this is a test"
     - # stage name not required, will continue to use `test`
-      script: ./test 2
+      script: echo "this is a re-test"
     - stage: test
       script: echo "we deploy here"
