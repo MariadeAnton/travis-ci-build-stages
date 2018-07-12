@@ -7,9 +7,10 @@ install: skip
 
 jobs:
   include:
-    - stage: test
+    - &lib-test-stage
+      stage: test libraries
       script: echo "this is a test"
-    - # stage name not required, will continue to use `test`
-      script: echo "this is a re-test"
-    - stage: test
-      script: echo "we deploy here"
+      if: branch = main
+      env: BR=lib-library2-test-conditions A=1
+    - <<: *lib-test-stage
+      env: BR=lib-library2-test-conditions B=1
