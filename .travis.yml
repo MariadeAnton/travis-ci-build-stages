@@ -7,7 +7,6 @@ install: skip
 
 jobs:
   include:
-
     # Test libraries
     - &lib-test-stage
       stage: test libraries
