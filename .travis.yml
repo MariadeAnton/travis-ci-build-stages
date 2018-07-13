@@ -7,10 +7,14 @@ install: skip
 
 jobs:
   include:
+
+    # Test libraries
     - &lib-test-stage
       stage: test libraries
-      script: echo "this is a test"
-      if: branch = main
+      script:
+        - COMPONENT_TYPE=lib ./ci/test.sh
+      if: branch = env(BR)
       env: BR=lib-library2-test-conditions A=1
+
     - <<: *lib-test-stage
       env: BR=lib-library2-test-conditions B=1
