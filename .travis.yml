@@ -1,21 +1,13 @@
 conditions: v1
 
-language: go
-go: 1.10.x
+language: generic
 
 install: skip
 
 jobs:
   include:
-    # Test libraries
     - stage: test libraries
       script:
-        - COMPONENT_TYPE=lib ./ci/test.sh
+        - echo hi
       if: branch = env(BR)
       env: BR=esta A=1
-
-    - stage: test this
-      script:
-        - COMPONENT_TYPE=lib ./ci/test.sh
-      if: branch = env(BR)
-      env: BR=esta B=1
