@@ -8,12 +8,14 @@ install: skip
 jobs:
   include:
     # Test libraries
-    - &lib-test-stage
-      stage: test libraries
+    - stage: test libraries
       script:
         - COMPONENT_TYPE=lib ./ci/test.sh
-      if: branch = esta
+      if: branch = env(BR)
       env: BR=esta A=1
 
-    - <<: *lib-test-stage
+    - stage: test this
+      script:
+        - COMPONENT_TYPE=lib ./ci/test.sh
+      if: branch = env(BR)
       env: BR=esta B=1
