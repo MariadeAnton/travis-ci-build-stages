@@ -10,8 +10,7 @@ jobs:
     - &lib-test-stage
       stage: test libraries
       script:
-        - COMPONENT_TYPE=lib ./ci/test.sh
-      if: branch = env(BR)
+        - echo hi
       env: BR=esta A=1
 
     - <<: *lib-test-stage
