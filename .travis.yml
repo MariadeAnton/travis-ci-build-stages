@@ -10,8 +10,8 @@ jobs:
       stage: test libraries
       script:
         - COMPONENT_TYPE=lib ./ci/test.sh
-      if: branch = otra
-      env: BR=lib-library2-test-conditions A=1
+      if: branch = env(BR)
+      env: BR=esta A=1
 
     - <<: *lib-test-stage
-      env: BR=lib-library2-test-conditions B=1
+      env: BR=esta B=1
