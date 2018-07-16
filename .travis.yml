@@ -6,13 +6,8 @@ install: skip
 
 jobs:
   include:
-    # Test libraries
-    - &lib-test-stage
-      stage: test libraries
-      if: branch = env(BR)
+    - stage: test
       script:
         - echo hi
+      if: branch = env(BR)
       env: BR=esta A=1
-
-    - <<: *lib-test-stage
-      env: BR=esta B=1
