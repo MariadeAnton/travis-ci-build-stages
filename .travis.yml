@@ -10,4 +10,4 @@ jobs:
       script:
         - echo hi
       if: branch = env(BR)
-      env: BR=esta A=1
+      env: BR=esta
