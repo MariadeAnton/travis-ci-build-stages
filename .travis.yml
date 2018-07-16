@@ -1,13 +1,11 @@
-conditions: v1
-
 language: generic
 
 install: skip
 
 jobs:
   include:
-    - stage: test libraries
+    - stage: test
       script:
         - echo hi
       if: branch = env(BR)
-      env: BR=esta
+      env: BR=esta A=1
