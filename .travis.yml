@@ -1,19 +1,16 @@
-conditions: v1
-
-language: go
-go: 1.10.x
+language: ruby
+cache: bundler
 
 install: skip
 
+rvm:
+  - 2.0.0
+  - 2.1.0
+  - 2.1.3
+
 jobs:
   include:
-    # Test libraries
-    - &lib-test-stage
-      stage: test libraries
-      script:
-        - COMPONENT_TYPE=lib ./ci/test.sh
-      if: branch = main
-      env: BR=lib-library2-test-conditions A=1
-
-    - <<: *lib-test-stage
-      env: BR=lib-library2-test-conditions B=1
+    - os: osx
+      osx_image: xcode7.3
+    - stage: deploy
+      script: echo "I'd deploy here..."
