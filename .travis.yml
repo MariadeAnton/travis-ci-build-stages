@@ -17,3 +17,7 @@ jobs:
       osx_image: xcode7.3
     - stage: deploy
       script: echo "I'd deploy here..."
+matrix:
+  exclude:
+    - os: osx
+      rvm: 2.1.0
