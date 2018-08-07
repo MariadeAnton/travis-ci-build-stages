@@ -7,17 +7,26 @@ os:
   - linux
   - osx
 rvm:
+  - 1.9.2
+  - 1.9.3
   - 2.0.0
   - 2.1.0
-  - 2.1.3
+  - 2.1.5
+  - jruby
 
 jobs:
   include:
     - os: osx
       osx_image: xcode7.3
+      rvm: 2.1.0
     - stage: deploy
       script: echo "I'd deploy here..."
+
 matrix:
   exclude:
-    - os: osx
-      rvm: 2.1.0
+    - rvm: 1.9.2
+      os: osx
+    - rvm: 2.1.0
+      os: osx
+    - rvm: jruby
+      os: osx
